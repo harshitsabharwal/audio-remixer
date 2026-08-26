@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Pro DAW Studio</title>
+    
+    <!-- Premium Typography: Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        bgDark: '#030305',
+                        surface: '#0a0a0f',
+                        surfaceHover: '#12121a',
+                        borderSubtle: '#1f1f2e',
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar { display: none; }
+        
+        /* Autofill overwrite for dark theme */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #0a0a0f inset !important;
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .mesh-bg {
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-bgDark text-gray-100 font-sans min-h-screen flex w-full selection:bg-indigo-500/30">
+
+    <!-- LEFT PANEL: Visual Showcase (Hidden on Mobile) -->
+    <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-indigo-900 via-bgDark to-purple-900 animate-gradient-x mesh-bg border-r border-borderSubtle">
+        
+        <!-- Abstract UI Floating Element -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-12 z-10">
+            <div class="w-full max-w-lg bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-3xl p-8 shadow-2xl animate-float">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="flex gap-1.5">
+                        <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div class="h-px bg-white/10 flex-1"></div>
+                    <span class="text-[10px] font-mono text-gray-400 uppercase tracking-widest">Workspace</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="h-16 w-full bg-gradient-to-r from-blue-500/20 to-transparent rounded-xl border border-blue-500/30 flex items-center px-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9zdmc+')]"></div>
+                        <div class="w-3/4 h-2 bg-blue-400/50 rounded-full"></div>
+                    </div>
+                    <div class="h-16 w-full bg-gradient-to-r from-purple-500/20 to-transparent rounded-xl border border-purple-500/30 flex items-center px-4 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9zdmc+')]"></div>
+                        <div class="w-1/2 h-2 bg-purple-400/50 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography overlay -->
+            <div class="mt-16 text-center z-10">
+                <h2 class="text-4xl font-extrabold tracking-tight text-white mb-4">Produce. Remix. Export.</h2>
+                <p class="text-gray-400 text-lg max-w-md mx-auto leading-relaxed">Your professional digital audio workstation, running entirely in the cloud. Zero latency, infinite creativity.</p>
+            </div>
+        </div>
+
+        <!-- Grid overlay -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTAgMjBoNDBNMCAzMGg0ME0xMCAwdjQwTTIwIDB2NDBNejAgMHY0MCIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-50 z-0"></div>
+    </div>
+
+    <!-- RIGHT PANEL: Authentication Form -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 md:p-20 relative">
+        
+        <!-- Subtle background glow for the right panel -->
+        <div class="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-indigo-500/10 rounded-full mix-blend-screen filter blur-[120px] pointer-events-none"></div>
+
+        <div class="w-full max-w-md relative z-10">
+            <!-- Brand Mobile (Hidden on Desktop) -->
+            <div class="flex lg:hidden items-center gap-3 mb-10">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-white">Pro DAW</h1>
+            </div>
+
+            <div class="mb-10">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2" id="form-title">Welcome back</h2>
+                <p id="form-subtitle" class="text-gray-400 text-sm">Sign in to your workspace</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="hidden mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm font-medium flex items-center gap-3">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <span id="error-text">Authentication failed</span>
+            </div>
+
+            <!-- Form -->
+            <form id="auth-form" class="space-y-5">
+                
+                <div id="username-container" class="hidden flex-col gap-2">
+                    <label class="text-xs font-semibold tracking-wide text-gray-400 ml-1">USERNAME</label>
+                    <input type="text" id="username" class="w-full bg-surface border border-borderSubtle focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 rounded-xl px-4 py-3.5 text-sm outline-none transition-all text-white placeholder-gray-600 shadow-sm" placeholder="e.g. remixer_pro">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-semibold tracking-wide text-gray-400 ml-1">EMAIL ADDRESS</label>
+                    <input type="email" id="email" required class="w-full bg-surface border border-borderSubtle focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 rounded-xl px-4 py-3.5 text-sm outline-none transition-all text-white placeholder-gray-600 shadow-sm" placeholder="you@example.com">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <div class="flex items-center justify-between ml-1">
+                        <label class="text-xs font-semibold tracking-wide text-gray-400">PASSWORD</label>
+                        <a href="#" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors">Forgot?</a>
+                    </div>
+                    <input type="password" id="password" required class="w-full bg-surface border border-borderSubtle focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 rounded-xl px-4 py-3.5 text-sm outline-none transition-all text-white placeholder-gray-600 shadow-sm" placeholder="••••••••">
+                </div>
+
+                <button type="submit" id="submit-btn" class="mt-2 w-full bg-white text-black hover:bg-gray-100 py-4 rounded-xl text-sm font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-[0.98] flex items-center justify-center gap-2">
+                    Login to Workspace
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+            </form>
+
+            <!-- Toggle Mode -->
+            <div class="mt-8 text-center text-sm text-gray-400">
+                <span id="toggle-text">Don't have an account?</span> 
+                <button id="toggle-mode-btn" class="text-white hover:text-indigo-400 font-bold transition-colors ml-1 border-b border-transparent hover:border-indigo-400 pb-0.5">Create one</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Injecting slightly modified logic just to update the new form-title -->
+    <script>
+        // Intercepting the toggle button to update our new heading
+        document.getElementById('toggle-mode-btn').addEventListener('click', () => {
+            const title = document.getElementById('form-title');
+            if(document.getElementById('username-container').classList.contains('hidden')) {
+                // Switching to Signup
+                title.innerText = 'Create account';
+            } else {
+                // Switching to Login
+                title.innerText = 'Welcome back';
+            }
+        });
+    </script>
+    <script src="auth.js"></script>
+</body>
+</html>
