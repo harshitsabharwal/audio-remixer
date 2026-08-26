@@ -239,7 +239,9 @@ async function processAudioUpload(file) {
         const data = await response.json();
         if (!response.ok) throw new Error(data.message);
 
-        const permanentUrl = data.url; 
+        // FORCE HTTPS: Swap the insecure HTTP for secure HTTPS right here
+        const permanentUrl = data.url.replace("http://", "https://"); 
+        
         const arrayBuffer = await file.arrayBuffer();
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
         
@@ -1226,6 +1228,9 @@ window.loadProject = async function(projectId) {
         updateUndoRedoUI();
         
         for (const bData of project.blocks) {
+            // FORCE HTTPS: Fix the URL before the browser tries to fetch it
+            bData.audioUrl = bData.audioUrl.replace("http://", "https://");
+
             let asset = assets.find(a => a.url === bData.audioUrl);
             if (!asset) {
                 const audioRes = await fetch(bData.audioUrl);
